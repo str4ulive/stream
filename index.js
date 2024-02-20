@@ -12,7 +12,7 @@ $.ajax({
       const cardHeader = $(`<div class="card-header"></div>`).text(
         sport.toUpperCase()
       );
-      const cardBody = $('<div class="card-body"></div>');
+      const cardBody = $('<div class="card-body table-responsive"></div>');
       const sportTable = $('<table class="table table-striped"></table>');
 
       displayDiv.append(card.append(cardHeader, cardBody.append(sportTable)));
