@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>STREAM</title>
+    <style>
+      body {
+        background-color: black;
+        overflow: hidden;
+      }
+
+      #player iframe {
+        width: 100vw;
+        height: 100vh;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="player"></div>
+
+    <script>
+      const urlParams = new URLSearchParams(window.location.search);
+      const myParam = urlParams.get("ch");
+
+      let dPlayer = document.querySelector("#player");
+
+      dPlayer.innerHTML = `
+         
+         
+ <iframe frameborder=0 width=640 height=480 src="//sportea.online/live/embed.php?ch=${myParam}" allowfullscreen scrolling=no allowtransparency></iframe>      
+ 
+ 
+ `;
+    </script>
+  </body>
+</html>
