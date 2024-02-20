@@ -1,0 +1,130 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AUTO</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link rel="icon" type="image/x-icon" href="./clipboard-check-fill.svg" />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        font-family: sans-serif;
+      }
+
+      nav {
+        padding: 6px;
+      }
+
+      ul {
+        list-style: none;
+        margin-top: 8px;
+      }
+
+      li {
+        display: inline;
+        padding: 10px;
+      }
+
+      li a {
+        color: white;
+        text-decoration: none;
+        cursor: pointer;
+        font-weight: bold;
+        font-size: 20px;
+      }
+
+      .copybtn {
+        background-color: blue;
+        color: white;
+        border: none;
+        outline: none;
+        width: 100%;
+        height: 80px;
+      }
+
+      .card :hover {
+        background-color: rgb(14, 19, 143);
+      }
+
+      .line {
+        border-bottom: 4px solid red;
+      }
+
+      .container-fluid {
+        padding-top: 90px;
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="bg-primary fixed-top">
+      <ul>
+        <li><a href="./nhl.html">NHL</a></li>
+        <li><a href="./nba.html">NBA</a></li>
+
+        <li><a href="./boxing.html">BOXING </a></li>
+        <li><a href="./mma.html">MMA </a></li>
+        <li><a href="./cfb.html">CFB</a></li>
+
+        <li><a href="./nfl.html">NFL</a></li>
+
+
+
+      </ul>
+    </nav>
+
+    <div class="container-fluid"></div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+
+    <script>
+      let display = document.querySelector(".container-fluid");
+      let i;
+      for (i = 1; i <= 5; i++) {
+        display.innerHTML += `
+            <div class="card ">
+            <button class="copybtn bg-secondary" onclick="copy(${i})">BOXING ${i}</button>
+        </div>
+        <br>`;
+
+        function copy(cid) {
+          let url = "http://www.retrosports.site/p/boxing" + cid + ".html";
+
+
+
+          navigator.clipboard.writeText(url);
+        }
+      }
+    </script>
+    <script>
+
+$('a').mouseenter(function(){
+    $(this).css('color', 'rgb(186, 186, 186)')
+})
+
+$('a').mouseleave(function(){
+    $(this).css('color', 'white')
+})
+
+$('button').click(function(){
+    $(this).addClass('bg-danger')
+})
+
+
+$('button').mouseenter(function(){
+    $(this).removeClass('bg-secondary')
+    $(this).addClass('bg-primary')
+})
+
+$('button').mouseleave(function(){
+    $(this).addClass('bg-secondary')
+    $(this).removeClass('bg-primary')
+})
+
+    </script>
+    <script src="https://abdul-re.github.io/stream/app.js"></script>
+  </body>
+</html>
