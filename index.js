@@ -8,7 +8,7 @@ $.ajax({
     const displayDiv = $("#display");
 
     Object.keys(schedule).forEach((sport) => {
-      const card = $('<div class="card m-5 bg-body-tertiary"></div>');
+      const card = $('<div class="card mt-5 bg-body-tertiary"></div>');
       const cardHeader = $(`<div class="card-header"></div>`).text(
         sport.toUpperCase()
       );
