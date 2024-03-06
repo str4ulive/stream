@@ -43,7 +43,9 @@ $.ajax({
         eventRow.append(`<td>${event.teams}</td>`);
 
         eventRow.append(
-          `<td class='text-center'> <a href="/sp.html?ch=${event.channel_id}" target="_blank"> <button class="btn btn-primary"> Watch Stream </button> </a></td>`
+          `<td class='text-center'> <a href="/sp.html?ch=${event.channel_id}" target="_blank"> <button class="btn btn-primary"> Watch Stream </button> </a>
+          <a href="https://url-shotner101.blogspot.com/p/s.html?url=https://tahib-american.blogspot.com/p/stream.html?ch=${event.channel_id}" target="_blank"> <button class="btn btn-primary"> Watch Stream </button> </a>
+          </td>`
         );
 
         $(".cursor-pointer").click(function () {
