@@ -34,7 +34,7 @@ $.ajax({
       headerRow.append("<th>#</th>");
       headerRow.append("<th>Event Time</th>");
       headerRow.append("<th>Teams</th>");
-      headerRow.append("<th class='text-center'>Links</th>");
+      headerRow.append("<th ></th>");
 
       const tableBody = $("<tbody></tbody>").appendTo(sportTable);
 
@@ -51,10 +51,13 @@ $.ajax({
         });
 
         eventRow.append("<td>" + formattedTime + "</td>");
-        eventRow.append(`<td>${event.teams}</td>`);
+        eventRow.append(`<td >${event.teams}</td>`);
 
         eventRow.append(
-          `<td class='text-center d-flex gap-2'> 
+          `<td class='text-center'> 
+
+          <div class=" d-flex gap-2 ">
+
             <a href="/sp.html?ch=${event.channel_id}" target="_blank"> 
               <button class="btn btn-primary rounded-0">Stream 1</button> 
             </a>
@@ -62,13 +65,11 @@ $.ajax({
               <button class="btn btn-danger rounded-0 text-white">Stream 2</button> 
             </a>
 
+            </div>
+
 
           </td>`
         );
-
-        $(".cursor-pointer").click(function () {
-          $(this).addClass("text-danger");
-        });
       });
     });
   })
