@@ -58,12 +58,3 @@ $.ajax({
     console.error("Request failed");
   });
 
-function copyToClipboard(ch_Id, title) {
-  let copyUrl = encodeURI(
-    `https://s.footy1.tk/re?redirect=${localStorage.getItem(
-      "selectedUrl"
-    )}?ch=${ch_Id}&match=${title}`
-  );
-
-  window.navigator.clipboard.writeText(copyUrl);
-}
