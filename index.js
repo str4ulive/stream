@@ -8,9 +8,20 @@ $.ajax({
     const displayDiv = $("#display");
 
     Object.keys(schedule).forEach((sport) => {
-      const card = $('<div class="card mt-5 bg-body-tertiary"></div>');
-      const cardHeader = $(`<div class="card-header"></div>`).text(
-        sport.toUpperCase()
+      document.getElementById("navbar-links").innerHTML += `
+      <li class="nav-item">
+      <a class="nav-link" href="#${sport}">${sport.toUpperCase()}</a>
+    </li>
+      
+      `;
+
+      const card = $(
+        `<div class="card mt-5 bg-body-tertiary" id="${sport}"></div>`
+      );
+      const cardHeader = $(
+        `<div class="card-header d-flex justify-content-between"></div>`
+      ).html(
+        `<span> ${sport.toUpperCase()} </span>   <span> ${data[0].date} </span>`
       );
       const cardBody = $('<div class="card-body table-responsive"></div>');
       const sportTable = $('<table class="table table-striped"></table>');
@@ -23,7 +34,7 @@ $.ajax({
       headerRow.append("<th>#</th>");
       headerRow.append("<th>Event Time</th>");
       headerRow.append("<th>Teams</th>");
-      headerRow.append("<th class='text-center'>Link</th>");
+      headerRow.append("<th class='text-center'>Links</th>");
 
       const tableBody = $("<tbody></tbody>").appendTo(sportTable);
 
@@ -43,8 +54,15 @@ $.ajax({
         eventRow.append(`<td>${event.teams}</td>`);
 
         eventRow.append(
-          `<td class='text-center'> <a href="/sp.html?ch=${event.channel_id}" target="_blank"> <button class="btn btn-primary"> Stream 1 </button> </a>
-          <a href="https://url-shotner101.blogspot.com/p/s.html?url=https://tahib-american.blogspot.com/p/stream.html?ch=${event.channel_id}" target="_blank"> <button class="btn btn-primary"> Stream 2 </button> </a>
+          `<td class='text-center d-flex gap-2'> 
+            <a href="/sp.html?ch=${event.channel_id}" target="_blank"> 
+              <button class="btn btn-primary rounded-0">Stream 1</button> 
+            </a>
+            <a href="https://url-shotner101.blogspot.com/p/s.html?url=https://tahib-american.blogspot.com/p/stream.html?ch=${event.channel_id}" target="_blank"> 
+              <button class="btn btn-danger rounded-0 text-white">Stream 2</button> 
+            </a>
+
+
           </td>`
         );
 
@@ -57,4 +75,3 @@ $.ajax({
   .fail(function () {
     console.error("Request failed");
   });
-
