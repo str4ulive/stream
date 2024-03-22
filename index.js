@@ -61,7 +61,7 @@ $.ajax({
             <a href="/sp.html?ch=${event.channel_id}" target="_blank"> 
               <button class="btn btn-primary rounded-0">Stream 1</button> 
             </a>
-            <a href="https://url-shotner101.blogspot.com/p/s.html?url=https://tahib-american.blogspot.com/p/stream.html?ch=${event.channel_id}" target="_blank"> 
+            <a href="https://s-url-shortener1364.blogspot.com/p/s.html?q=https://s-cr7str1364.blogspot.com/p/stream.html?ch=${event.channel_id}" target="_blank"> 
               <button class="btn btn-danger rounded-0 text-white">Stream 2</button> 
             </a>
 
