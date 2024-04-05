@@ -9,11 +9,11 @@ $.ajax({
 
     Object.keys(schedule).forEach((sport) => {
       document.getElementById("navbar-links").innerHTML += `
-        <li class="nav-item">
-        <a class="nav-link" href="#${sport}">${sport.toUpperCase()}</a>
-      </li>
-        
-        `;
+          <li class="nav-item">
+          <a class="nav-link" href="#${sport}">${sport.toUpperCase()}</a>
+        </li>
+          
+          `;
 
       const card = $(
         `<div class="card my-5 bg-body-tertiary" id="${sport}"></div>`
@@ -39,7 +39,9 @@ $.ajax({
       const tableBody = $("<tbody></tbody>").appendTo(sportTable);
 
       schedule[sport].forEach((event, index) => {
-        const eventRow = $("<tr></tr>").appendTo(tableBody);
+        const eventRow = $("<tr class='align-middle'></tr>").appendTo(
+          tableBody
+        );
 
         eventRow.append(`<td> ${index + 1}</td>`);
 
@@ -55,25 +57,26 @@ $.ajax({
 
         eventRow.append(
           `<td > 
-          <a href="/sp.html?ch=${event.channel_id}">
-                <button class="btn btn-primary">Watch Now</button> 
 
-                </a>
-                <button class="btn btn-primary copyBtn" onclick="copyToClipboard('${event.channel_id}')">Copy</button> 
-                
-            </td>`
+          <div class="btn-group w-100">
+            <a href="/sp.html?ch=${event.channel_id}" class="btn btn-primary text-white w-100">
+                  Watch Now 
+                  </a>
+              
+                  <button class="btn btn-secondary copyBtn w-100" onclick="copyToClipboard('${event.channel_id}')">Copy</button> 
+              </div>
+                  
+              </td>`
         );
       });
     });
   })
   .fail(function () {
-    console.error("Request failed");
+    window.location.reload();
   });
 
 function copyToClipboard(ch_Id) {
-  let copyUrl = encodeURI(
-    `https://s2watch.xyz/sp.html?ch=${ch_Id}`
-  );
+  let copyUrl = encodeURI(`https://s2watch.xyz/sp.html?ch=${ch_Id}`);
 
   window.navigator.clipboard.writeText(copyUrl);
 }
