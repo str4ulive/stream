@@ -56,10 +56,10 @@ $.ajax({
         eventRow.append(
           `<td > 
           <a href="/sp.html?ch=${event.channel_id}">
-                <button class="btn btn-primary w-100 copyBtn">Watch Now</button> 
+                <button class="btn btn-primary">Watch Now</button> 
 
                 </a>
-                <button class="btn btn-primary w-100 copyBtn" onclick="copyToClipboard('${event.channel_id}')">Copy</button> 
+                <button class="btn btn-primary copyBtn" onclick="copyToClipboard('${event.channel_id}')">Copy</button> 
                 
             </td>`
         );
