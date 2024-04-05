@@ -9,14 +9,14 @@ $.ajax({
 
     Object.keys(schedule).forEach((sport) => {
       document.getElementById("navbar-links").innerHTML += `
-      <li class="nav-item">
-      <a class="nav-link" href="#${sport}">${sport.toUpperCase()}</a>
-    </li>
-      
-      `;
+        <li class="nav-item">
+        <a class="nav-link" href="#${sport}">${sport.toUpperCase()}</a>
+      </li>
+        
+        `;
 
       const card = $(
-        `<div class="card mt-5 bg-body-tertiary" id="${sport}"></div>`
+        `<div class="card my-5 bg-body-tertiary" id="${sport}"></div>`
       );
       const cardHeader = $(
         `<div class="card-header d-flex justify-content-between"></div>`
@@ -54,11 +54,14 @@ $.ajax({
         eventRow.append(`<td >${event.teams}</td>`);
 
         eventRow.append(
-          `<td class='text-center'> 
+          `<td > 
+          <a href="/sp.html?ch=${event.channel_id}">
+                <button class="btn btn-primary w-100 copyBtn">Watch Now</button> 
 
-          
-
-          </td>`
+                </a>
+                <button class="btn btn-primary w-100 copyBtn" onclick="copyToClipboard('${event.channel_id}')">Copy</button> 
+                
+            </td>`
         );
       });
     });
@@ -66,3 +69,15 @@ $.ajax({
   .fail(function () {
     console.error("Request failed");
   });
+
+function copyToClipboard(ch_Id) {
+  let copyUrl = encodeURI(
+    `https://s2watch.xyz/sp.html?ch=${ch_Id}`
+  );
+
+  window.navigator.clipboard.writeText(copyUrl);
+}
+
+$("body").on("click", ".copyBtn", function () {
+  $(this).addClass("btn-danger");
+});
