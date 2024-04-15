@@ -59,7 +59,7 @@ $.ajax({
           `<td > 
 
           <div class="btn-group w-100">
-            <a href="/sp.html?ch=${event.channel_id}" class="btn btn-primary text-white w-100">
+            <a href="http://v1.s2watch.xyz/p/s.html?ch=${event.channel_id}" class="btn btn-primary text-white w-100">
                   Watch Now 
                   </a>
               
@@ -76,7 +76,7 @@ $.ajax({
   });
 
 function copyToClipboard(ch_Id) {
-  let copyUrl = encodeURI(`https://s2watch.xyz/sp.html?ch=${ch_Id}`);
+  let copyUrl = encodeURI(`http://v1.s2watch.xyz/p/s.html?ch=${ch_Id}`);
 
   window.navigator.clipboard.writeText(copyUrl);
 }
