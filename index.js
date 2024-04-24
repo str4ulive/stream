@@ -1,5 +1,5 @@
 $.ajax({
-  url: "https://sportea.eu/v1/api.php?key=a38088a3a9ba7c256f6580413927a274",
+  url: "https://andrhino.com/v1/api.php?key=a38088a3a9ba7c256f6580413927a274",
   method: "GET",
   dataType: "json",
 })
@@ -9,11 +9,11 @@ $.ajax({
 
     Object.keys(schedule).forEach((sport) => {
       document.getElementById("navbar-links").innerHTML += `
-          <li class="nav-item">
-          <a class="nav-link" href="#${sport}">${sport.toUpperCase()}</a>
-        </li>
-          
-          `;
+            <li class="nav-item">
+            <a class="nav-link" href="#${sport}">${sport.toUpperCase()}</a>
+          </li>
+            
+            `;
 
       const card = $(
         `<div class="card my-5 bg-body-tertiary" id="${sport}"></div>`
@@ -24,7 +24,9 @@ $.ajax({
         `<span> ${sport.toUpperCase()} </span>   <span> ${data[0].date} </span>`
       );
       const cardBody = $('<div class="card-body table-responsive"></div>');
-      const sportTable = $('<table class="table table-striped"></table>');
+      const sportTable = $(
+        '<table class="table table-striped table-bordered"></table>'
+      );
 
       displayDiv.append(card.append(cardHeader, cardBody.append(sportTable)));
 
@@ -57,26 +59,32 @@ $.ajax({
 
         eventRow.append(
           `<td > 
+  
+            <div class="btn-group w-100">
 
-          <div class="btn-group w-100">
-            <a href="http://v1.s2watch.xyz/p/s.html?ch=${event.channel_id}" class="btn btn-primary text-white w-100">
-                  Watch Now 
-                  </a>
-              
-                  <button class="btn btn-secondary copyBtn w-100" onclick="copyToClipboard('${event.channel_id}')">Copy</button> 
-              </div>
-                  
-              </td>`
+                
+                    <button class="btn btn-secondary copyBtn w-100" onclick="copyToClipboard('${
+                      event.channel_id
+                    }', '${encodeURI(
+            event.teams
+          )}', ${index})">Copy Stream</button> 
+                </div>
+                    
+                </td>`
         );
       });
     });
+
+    $("#wait").remove();
   })
   .fail(function () {
     window.location.reload();
   });
 
-function copyToClipboard(ch_Id) {
-  let copyUrl = encodeURI(`http://v1.s2watch.xyz/p/s.html?ch=${ch_Id}`);
+function copyToClipboard(ch_Id, title, index) {
+  let copyUrl = encodeURI(
+    `http://v1.s2watch.xyz/p/live${index + 1}.html?ch=${ch_Id}&match=${title}`
+  );
 
   window.navigator.clipboard.writeText(copyUrl);
 }
