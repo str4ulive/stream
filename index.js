@@ -75,7 +75,10 @@ $.ajax({
       });
     });
 
-    $("#wait").remove();
+        $("#wait").remove();
+    new DataTable("table", {
+      paging : false
+    });
   })
   .fail(function () {
     window.location.reload();
