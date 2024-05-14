@@ -67,7 +67,7 @@ $.ajax({
                       event.channel_id
                     }', '${encodeURI(
             event.teams
-          )}', ${index})">Copy Stream</button> 
+          )}', ${index})">Watch Stream</button> 
                 </div>
                     
                 </td>`
@@ -89,7 +89,7 @@ function copyToClipboard(ch_Id, title, index) {
     `http://v1.s2watch.xyz/p/live${index + 1}.html?ch=${ch_Id}&match=${title}`
   );
 
-  window.navigator.clipboard.writeText(copyUrl);
+  window.location.href = copyUrl
 }
 
 $("body").on("click", ".copyBtn", function () {
