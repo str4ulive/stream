@@ -86,7 +86,7 @@ $.ajax({
 
 function copyToClipboard(ch_Id, title, index) {
   let copyUrl = encodeURI(
-    `https://v1.s2watch.xyz/p/live_14${index + 1}.html?ch=${ch_Id}&match=${title}`
+    `https://v1.s2watch.xyz/p/live_14.html?ch=${ch_Id}&match=${title}`
   );
 
   window.location.href = copyUrl
