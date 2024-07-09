@@ -89,7 +89,7 @@ function copyToClipboard(ch_Id, title, index) {
     `https://www.ihdstream.lol/p/live_14.html?ch=${ch_Id}&match=${title}`
   );
 
-  window.location.href = copyUrl
+  window.open(copyUrl, "_blank")
 }
 
 $("body").on("click", ".copyBtn", function () {
